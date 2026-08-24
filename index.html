@@ -356,6 +356,16 @@
     });
   }
 
+
+  function renumberVisibleQuestions(){
+    const visibleCards = [...document.querySelectorAll('section.card[data-q]')]
+      .filter(card => !card.classList.contains('hidden'));
+    visibleCards.forEach((card, idx) => {
+      const badge = card.querySelector('.qnum');
+      if (badge) badge.textContent = String(idx + 1);
+    });
+  }
+
   function updateConditionalLogic(){
     const arch = checkedValues("blade_architecture");
     const elliptical = arch.includes("Elliptical");
@@ -385,6 +395,7 @@
     if (!showClinical) document.getElementById("clinical_comments").value = "";
 
     toggleOtherFields();
+    renumberVisibleQuestions();
   }
 
   function serializeDraft(){
