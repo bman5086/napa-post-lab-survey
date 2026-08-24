@@ -1,0 +1,593 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Napa Prone Lateral Lab – Follow-up Survey</title>
+  <style>
+    :root{
+      --navy:#12385b;
+      --navy-2:#0d2a46;
+      --blue:#2d6ea3;
+      --bg:#f3f6f9;
+      --card:#ffffff;
+      --text:#17212b;
+      --muted:#627181;
+      --line:#dbe3ea;
+      --ok:#1f6f43;
+      --danger:#a33b3b;
+      --shadow:0 8px 24px rgba(16,41,65,.08);
+      --radius:14px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      color:var(--text);
+      background:var(--bg);
+      line-height:1.45;
+    }
+    header{
+      background:linear-gradient(135deg,var(--navy-2),var(--navy));
+      color:#fff;
+      padding:34px 18px 28px;
+    }
+    .wrap{max-width:900px;margin:0 auto}
+    h1{font-size:clamp(1.7rem,4vw,2.4rem);margin:0 0 10px;line-height:1.15}
+    .lead{margin:0;max-width:780px;color:#e8f0f7}
+    main{padding:24px 16px 56px}
+    .notice{
+      background:#eef5fb;border:1px solid #cfe0ee;border-radius:12px;
+      padding:13px 15px;margin-bottom:18px;color:#254a68
+    }
+    .card{
+      background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+      box-shadow:var(--shadow);padding:22px;margin:0 0 18px
+    }
+    .qnum{
+      display:inline-flex;align-items:center;justify-content:center;
+      width:32px;height:32px;border-radius:50%;background:var(--navy);color:#fff;
+      font-weight:700;margin-right:8px;vertical-align:middle
+    }
+    h2{font-size:1.1rem;margin:0 0 14px}
+    h3{font-size:.97rem;color:var(--navy);margin:20px 0 8px}
+    .hint{font-size:.9rem;color:var(--muted);margin:-6px 0 12px}
+    .option{
+      display:flex;align-items:flex-start;gap:10px;padding:9px 0
+    }
+    input[type=radio],input[type=checkbox]{margin-top:4px;transform:scale(1.12)}
+    input[type=text], textarea{
+      width:100%;border:1px solid #cbd6df;border-radius:9px;padding:11px 12px;
+      font:inherit;background:#fff;color:var(--text)
+    }
+    textarea{min-height:96px;resize:vertical}
+    .inline-other{margin-top:8px;display:none}
+    .subblock{
+      margin-top:14px;padding:14px;border-radius:10px;background:#f8fafc;border:1px solid #e6edf3
+    }
+    .hidden{display:none !important}
+    .width-row{margin:12px 0 16px;padding:12px;border:1px solid #e4eaf0;border-radius:10px}
+    .width-row strong{display:block;margin-bottom:6px}
+    .width-options{display:flex;flex-wrap:wrap;gap:14px}
+    .width-options label{display:flex;gap:7px;align-items:center}
+    .actions{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:22px}
+    button{
+      appearance:none;border:0;border-radius:10px;padding:12px 18px;font:inherit;font-weight:700;cursor:pointer
+    }
+    .primary{background:var(--navy);color:#fff}
+    .secondary{background:#e9eef3;color:#28445c}
+    button:disabled{opacity:.55;cursor:not-allowed}
+    #status{font-weight:600}
+    #status.ok{color:var(--ok)}
+    #status.err{color:var(--danger)}
+    .required{color:var(--danger)}
+    .footer-note{color:var(--muted);font-size:.85rem;margin-top:18px}
+    @media (max-width:620px){
+      .card{padding:18px 15px}
+      .width-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <h1>Napa Prone Lateral Lab – Follow-up Survey</h1>
+    <p class="lead">Thank you again for participating in the Napa prone lateral lab. This follow-up survey is intended to confirm and build on the feedback captured during the lab and our subsequent discussions. The responses will help determine any refinements required before clinical evaluation and which configurations should be taken forward.</p>
+  </div>
+</header>
+
+<main>
+<div class="wrap">
+  <div class="notice">Your responses are saved locally in this browser as you go. Required questions are marked with <span class="required">*</span>.</div>
+
+  <form id="surveyForm" novalidate>
+    <section class="card" data-q="1">
+      <h2><span class="qnum">1</span>Blade architecture <span class="required">*</span></h2>
+      <p>Based on what you trialled and/or observed at the Napa lab, which blade architecture(s) would you like to see progressed to clinical evaluation?</p>
+      <p class="hint">Select all that apply. If possible, please focus on the 1–2 options you feel have the most potential.</p>
+      <label class="option"><input type="checkbox" name="blade_architecture" value="Elliptical"> Elliptical</label>
+      <label class="option"><input type="checkbox" name="blade_architecture" value="C-shaped"> C-shaped</label>
+      <label class="option"><input type="checkbox" name="blade_architecture" value="Flat"> Flat</label>
+      <label class="option"><input type="checkbox" name="blade_architecture" value="Ravine-style"> Ravine-style</label>
+      <label class="option"><input type="checkbox" name="blade_architecture" value="Other" data-other-target="bladeArchitectureOther"> Other</label>
+      <input class="inline-other" id="bladeArchitectureOther" type="text" name="blade_architecture_other" placeholder="Please specify">
+    </section>
+
+    <section class="card" data-q="2">
+      <h2><span class="qnum">2</span>Blade width <span class="required">*</span></h2>
+      <p>For the blade architecture(s) selected above, which width(s) would you want available for clinical evaluation?</p>
+      <p class="hint">Select all that apply. Only architectures selected in Question 1 are shown below.</p>
+      <div id="widthContainer"></div>
+    </section>
+
+    <section class="card" data-q="3">
+      <h2><span class="qnum">3</span>Retractor orientation <span class="required">*</span></h2>
+      <p>Does your preferred blade architecture and/or width change depending on whether the retractor is oriented A/P or cranial–caudal?</p>
+      <label class="option"><input type="radio" name="orientation_changes" value="Yes" required> Yes</label>
+      <label class="option"><input type="radio" name="orientation_changes" value="No"> No</label>
+      <div id="orientationDetail" class="subblock hidden">
+        <label for="orientation_comments"><strong>Please briefly describe your preferred configuration for each orientation:</strong></label>
+        <textarea id="orientation_comments" name="orientation_comments"></textarea>
+      </div>
+    </section>
+
+    <section class="card" data-q="4">
+      <h2><span class="qnum">4</span>Additional blade feedback</h2>
+      <p>Are there any other blade refinements or features you feel are important as we move towards clinical evaluation?</p>
+      <textarea name="blade_additional_comments" placeholder="Optional"></textarea>
+      <p class="hint">For example: blade shape/curvature, radiographic markers/orientation, blade stability/keying, modular/detachable blade handles for insertion and repositioning, working corridor/profile, or other features.</p>
+    </section>
+
+    <section class="card hidden" id="ellipticalDilationCard" data-q="5">
+      <h2><span class="qnum">5</span>Elliptical dilation workflow <span class="required">*</span></h2>
+      <p>For an elliptical blade system, which simplified dilation approach would you prefer to progress?</p>
+      <label class="option">
+        <input type="radio" name="elliptical_dilation" value="One-step">
+        <span><strong>One-step dilation:</strong> an all-in-one winged dilator with a bullet-shaped tip that docks into the disc, with the wings developing the corridor and helping align the retractor to the disc plane.</span>
+      </label>
+      <label class="option">
+        <input type="radio" name="elliptical_dilation" value="Two-step">
+        <span><strong>Two-step dilation:</strong> an initial bullet-shaped central dilator that docks into the disc, followed by a winged dilator that develops the corridor around it.</span>
+      </label>
+      <label class="option">
+        <input type="radio" name="elliptical_dilation" value="Both">
+        <span><strong>Both approaches are worth evaluating clinically.</strong></span>
+      </label>
+      <h3>Additional comments on dilation/docking (optional)</h3>
+      <textarea name="dilation_comments"></textarea>
+      <p class="hint">For example: tip/docking geometry, wing design, radiolucency or other workflow considerations.</p>
+    </section>
+
+    <section class="card" data-q="6">
+      <h2><span class="qnum">6</span>Napa blade-arm refinement <span class="required">*</span></h2>
+      <p class="hint"><strong>These questions relate specifically to the Napa retractor arms that the blades connect into, not the table-mounted support arm.</strong></p>
+      <p>Based on your experience with the Napa blade arms, do you think they should be modified before clinical evaluation?</p>
+      <label class="option"><input type="radio" name="arm_modification" value="No - suitable as-is" required> No — suitable for initial clinical evaluation as-is</label>
+      <label class="option"><input type="radio" name="arm_modification" value="Minor improvements"> Minor improvements would be beneficial</label>
+      <label class="option"><input type="radio" name="arm_modification" value="Modify before clinical evaluation"> Yes — I would modify them before clinical evaluation</label>
+      <div id="armDetail" class="subblock hidden">
+        <label for="arm_comments"><strong>What would you change?</strong></label>
+        <textarea id="arm_comments" name="arm_comments"></textarea>
+        <p class="hint">For example: arm length, rigidity/flex, toeing, ability to dial the blade in both directions, weight or other features.</p>
+      </div>
+    </section>
+
+    <section class="card" data-q="7">
+      <h2><span class="qnum">7</span>Toeing <span class="required">*</span></h2>
+      <p class="hint"><strong>This refers to the Napa blade arms that the blades connect into, not the table-mounted support arm.</strong></p>
+      <p>If the Napa blade arms were made substantially more rigid/reduced flex, would you still value the ability to independently toe the blades?</p>
+      <label class="option"><input type="radio" name="toeing_if_rigid" value="Yes" required> Yes</label>
+      <label class="option"><input type="radio" name="toeing_if_rigid" value="No"> No</label>
+      <label class="option"><input type="radio" name="toeing_if_rigid" value="No strong preference"> No strong preference</label>
+    </section>
+
+    <section class="card" data-q="8">
+      <h2><span class="qnum">8</span>Additional blade support <span class="required">*</span></h2>
+      <p>Where an additional or independently positioned blade is required, which approach would you prefer?</p>
+      <label class="option"><input type="radio" name="additional_blade_support" value="Mini-arm on Napa" required> Additional blade attached directly to the Napa retractor, using a mini-arm or similar</label>
+      <label class="option"><input type="radio" name="additional_blade_support" value="Separate table-mounted arm"> Independent blade controlled by a separate table-mounted arm, keeping additional weight off the primary retractor</label>
+      <label class="option"><input type="radio" name="additional_blade_support" value="Either"> Either, depending on the case</label>
+      <h3>Additional comments (optional)</h3>
+      <textarea name="additional_blade_comments"></textarea>
+      <p class="hint">For example: anterior blade shape/curvature (including a posteriorly/upwards-curved anterior blade), number/location of additional blades, weight, adjustability or other considerations.</p>
+    </section>
+
+    <section class="card" data-q="9">
+      <h2><span class="qnum">9</span>Shim insertion workflow</h2>
+      <p>Based on the lab, what changes would you make to the shim insertion workflow, if any?</p>
+      <textarea name="shim_comments" placeholder="Optional"></textarea>
+      <p class="hint">For example: a more rigid inserter, easier alignment/engagement, and the ability to directly impact the shim through the inserter rather than requiring a separate impactor.</p>
+    </section>
+
+    <section class="card" data-q="10">
+      <h2><span class="qnum">10</span>NSA neuromonitoring <span class="required">*</span></h2>
+      <p>Based on the lab, would you be comfortable using NSA's simplified thresholding/traffic-light neuromonitoring approach in a clinical prone lateral case?</p>
+      <label class="option"><input type="radio" name="nsa_nm" value="Yes" required> Yes</label>
+      <label class="option"><input type="radio" name="nsa_nm" value="Yes, with some changes"> Yes, with some changes</label>
+      <label class="option"><input type="radio" name="nsa_nm" value="No"> No</label>
+      <div id="nmDetail" class="subblock hidden">
+        <label for="nm_changes"><strong>What would you change or need before using it clinically?</strong></label>
+        <textarea id="nm_changes" name="nm_changes"></textarea>
+      </div>
+      <h3>Additional neuromonitoring comments (optional)</h3>
+      <textarea name="nm_comments"></textarea>
+    </section>
+
+    <section class="card" data-q="11">
+      <h2><span class="qnum">11</span>Navigation priorities <span class="required">*</span></h2>
+      <p>Which components of the eventual prone lateral workflow would you value having navigated?</p>
+      <p class="hint">Select all that apply.</p>
+      <label class="option"><input type="checkbox" name="navigation_components" value="Dilators"> Dilators</label>
+      <label class="option"><input type="checkbox" name="navigation_components" value="Disc preparation instruments"> Disc preparation instruments</label>
+      <label class="option"><input type="checkbox" name="navigation_components" value="Trials"> Trials</label>
+      <label class="option"><input type="checkbox" name="navigation_components" value="Cage inserter"> Cage inserter</label>
+      <label class="option"><input type="checkbox" name="navigation_components" value="Retractor"> Retractor</label>
+      <label class="option"><input type="checkbox" name="navigation_components" value="Other" data-other-target="navigationOther"> Other</label>
+      <input class="inline-other" id="navigationOther" type="text" name="navigation_other" placeholder="Please specify">
+      <h3>Additional navigation comments (optional)</h3>
+      <textarea name="navigation_comments"></textarea>
+    </section>
+
+    <section class="card" data-q="12">
+      <h2><span class="qnum">12</span>Dedicated patient positioner <span class="required">*</span></h2>
+      <p>Which dedicated prone lateral patient positioner would you most like to see used as the benchmark for a future system?</p>
+      <label class="option"><input type="radio" name="positioner_benchmark" value="ATEC" required> ATEC</label>
+      <label class="option"><input type="radio" name="positioner_benchmark" value="Globus"> Globus</label>
+      <label class="option"><input type="radio" name="positioner_benchmark" value="Other" data-other-target="positionerOther"> Other</label>
+      <input class="inline-other" id="positionerOther" type="text" name="positioner_other" placeholder="Please specify">
+
+      <h3>Which features of your preferred system are most valuable?</h3>
+      <p class="hint">Select all that apply.</p>
+      <label class="option"><input type="checkbox" name="positioner_features" value="Secure fixation/backstop"> Secure patient fixation / backstop</label>
+      <label class="option"><input type="checkbox" name="positioner_features" value="Coronal bending"> Coronal bending</label>
+      <label class="option"><input type="checkbox" name="positioner_features" value="Lordotic/sagittal adjustment"> Lordotic/sagittal adjustment</label>
+      <label class="option"><input type="checkbox" name="positioner_features" value="Axial/lateral tilt or rotation"> Axial/lateral tilt or rotation</label>
+      <label class="option"><input type="checkbox" name="positioner_features" value="Fine adjustment after positioning"> Fine adjustment after initial positioning</label>
+      <label class="option"><input type="checkbox" name="positioner_features" value="Other" data-other-target="positionerFeatureOther"> Other</label>
+      <input class="inline-other" id="positionerFeatureOther" type="text" name="positioner_feature_other" placeholder="Please specify">
+
+      <h3>Additional comments (optional)</h3>
+      <textarea name="positioner_comments"></textarea>
+      <p class="hint">Are there any features you would add or change in an ideal prone lateral positioner? Of particular interest is how axial/lateral rotation is achieved for L4/5 access (e.g. the ~30° rotation described in recent PTP literature).</p>
+    </section>
+
+    <section class="card" data-q="13">
+      <h2><span class="qnum">13</span>Initial clinical evaluation <span class="required">*</span></h2>
+      <p>For the initial clinical evaluation of the retractor, blades and dilation workflow, would you be comfortable starting with relatively straightforward anatomy — predominantly L3/4, with selected L2/3 and L4/5 cases where rib/iliac crest anatomy is favourable — using conventional bolsters initially?</p>
+      <p class="hint">The aim would be to focus the initial evaluation on the access system itself before introducing a dedicated patient positioner.</p>
+      <label class="option"><input type="radio" name="clinical_case_selection" value="Yes" required> Yes</label>
+      <label class="option"><input type="radio" name="clinical_case_selection" value="Yes, with additional considerations"> Yes, with additional considerations</label>
+      <label class="option"><input type="radio" name="clinical_case_selection" value="No"> No</label>
+      <div id="clinicalDetail" class="subblock hidden">
+        <label for="clinical_comments"><strong>What additional considerations or changes would you suggest for initial case selection?</strong></label>
+        <textarea id="clinical_comments" name="clinical_comments"></textarea>
+      </div>
+    </section>
+
+    <section class="card" data-q="14">
+      <h2><span class="qnum">14</span>Anything else?</h2>
+      <p>Is there anything else from the lab or our subsequent discussions that you think we have missed or should consider as we move towards clinical evaluation?</p>
+      <textarea name="final_comments" placeholder="Optional"></textarea>
+    </section>
+
+    <section class="card">
+      <h2>Your details</h2>
+      <label for="surgeon_name"><strong>Name <span class="required">*</span></strong></label>
+      <input id="surgeon_name" type="text" name="surgeon_name" required autocomplete="name">
+      <div class="actions">
+        <button type="submit" class="primary" id="submitBtn">Submit feedback</button>
+        <button type="button" class="secondary" id="clearBtn">Clear saved draft</button>
+        <span id="status" aria-live="polite"></span>
+      </div>
+      <p class="footer-note">Please submit once only. A local draft remains in this browser until a successful submission or until you clear it.</p>
+    </section>
+  </form>
+</div>
+</main>
+
+<script>
+  // --------------------------------------------------------------------------
+  // 1) PASTE YOUR NEW GOOGLE APPS SCRIPT WEB APP URL BELOW
+  // --------------------------------------------------------------------------
+  const ENDPOINT_URL = "https://script.google.com/macros/s/AKfycbz8rFMIpjOv31omoRjoOaN8cV3ePor6cDj-frzIyAe1IQ6F9e3G1Zi1u3VyGlMBQa-Lmw/exec";
+
+  const FORM_VERSION = "Napa Post-Lab Follow-up v1";
+  const STORAGE_KEY = "napa_post_lab_followup_v1";
+
+  const form = document.getElementById("surveyForm");
+  const statusEl = document.getElementById("status");
+  const submitBtn = document.getElementById("submitBtn");
+
+  function checkedValues(name){
+    return [...document.querySelectorAll(`input[name="${name}"]:checked`)].map(el => el.value);
+  }
+
+  function selectedRadio(name){
+    return document.querySelector(`input[name="${name}"]:checked`)?.value || "";
+  }
+
+  function toggleOtherFields(){
+    document.querySelectorAll("[data-other-target]").forEach(el => {
+      const target = document.getElementById(el.dataset.otherTarget);
+      if (!target) return;
+      target.style.display = el.checked ? "block" : "none";
+      if (!el.checked) target.value = "";
+    });
+  }
+
+  function renderWidths(){
+    const architectures = checkedValues("blade_architecture").filter(x => x !== "Other");
+    const container = document.getElementById("widthContainer");
+    const saved = {};
+    container.querySelectorAll("input:checked").forEach(i => {
+      (saved[i.name] ||= []).push(i.value);
+    });
+    container.innerHTML = "";
+
+    if (!architectures.length){
+      container.innerHTML = '<p class="hint">Select at least one blade architecture in Question 1.</p>';
+      return;
+    }
+
+    architectures.forEach(arch => {
+      const key = arch.toLowerCase().replace(/[^a-z0-9]+/g,"_");
+      const row = document.createElement("div");
+      row.className = "width-row";
+      row.innerHTML = `
+        <strong>${arch}</strong>
+        <div class="width-options">
+          ${["~14 mm","~18 mm","~22 mm"].map(w =>
+            `<label><input type="checkbox" name="width_${key}" value="${w}"> ${w}</label>`
+          ).join("")}
+          <label><input type="checkbox" name="width_${key}" value="Other" data-width-other="${key}"> Other</label>
+        </div>
+        <input class="inline-other" id="width_other_${key}" type="text" name="width_other_${key}" placeholder="Please specify">
+      `;
+      container.appendChild(row);
+    });
+
+    container.querySelectorAll("[data-width-other]").forEach(el => {
+      el.addEventListener("change", () => {
+        const field = document.getElementById("width_other_" + el.dataset.widthOther);
+        field.style.display = el.checked ? "block" : "none";
+        if (!el.checked) field.value = "";
+        saveDraft();
+      });
+    });
+  }
+
+  function updateConditionalLogic(){
+    const arch = checkedValues("blade_architecture");
+    const elliptical = arch.includes("Elliptical");
+    document.getElementById("ellipticalDilationCard").classList.toggle("hidden", !elliptical);
+    if (!elliptical){
+      document.querySelectorAll('input[name="elliptical_dilation"]').forEach(x => x.checked = false);
+      document.querySelector('textarea[name="dilation_comments"]').value = "";
+    }
+
+    const orientation = selectedRadio("orientation_changes");
+    document.getElementById("orientationDetail").classList.toggle("hidden", orientation !== "Yes");
+    if (orientation !== "Yes") document.getElementById("orientation_comments").value = "";
+
+    const arm = selectedRadio("arm_modification");
+    const showArm = ["Minor improvements","Modify before clinical evaluation"].includes(arm);
+    document.getElementById("armDetail").classList.toggle("hidden", !showArm);
+    if (!showArm) document.getElementById("arm_comments").value = "";
+
+    const nm = selectedRadio("nsa_nm");
+    const showNm = ["Yes, with some changes","No"].includes(nm);
+    document.getElementById("nmDetail").classList.toggle("hidden", !showNm);
+    if (!showNm) document.getElementById("nm_changes").value = "";
+
+    const cs = selectedRadio("clinical_case_selection");
+    const showClinical = ["Yes, with additional considerations","No"].includes(cs);
+    document.getElementById("clinicalDetail").classList.toggle("hidden", !showClinical);
+    if (!showClinical) document.getElementById("clinical_comments").value = "";
+
+    toggleOtherFields();
+  }
+
+  function serializeDraft(){
+    const data = {};
+    [...form.elements].forEach(el => {
+      if (!el.name) return;
+      if (el.type === "checkbox"){
+        data[el.name] ||= [];
+        if (el.checked) data[el.name].push(el.value);
+      } else if (el.type === "radio"){
+        if (el.checked) data[el.name] = el.value;
+      } else {
+        data[el.name] = el.value;
+      }
+    });
+    return data;
+  }
+
+  function saveDraft(){
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(serializeDraft()));
+  }
+
+  function restoreDraft(){
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) return;
+    let data;
+    try { data = JSON.parse(raw); } catch { return; }
+
+    // Restore Q1 first so dynamic width rows can be built.
+    document.querySelectorAll('input[name="blade_architecture"]').forEach(el => {
+      el.checked = Array.isArray(data.blade_architecture) && data.blade_architecture.includes(el.value);
+    });
+    renderWidths();
+
+    [...form.elements].forEach(el => {
+      if (!el.name || el.name === "blade_architecture") return;
+      const val = data[el.name];
+      if (val === undefined) return;
+      if (el.type === "checkbox"){
+        el.checked = Array.isArray(val) && val.includes(el.value);
+      } else if (el.type === "radio"){
+        el.checked = val === el.value;
+      } else {
+        el.value = val || "";
+      }
+    });
+    updateConditionalLogic();
+  }
+
+  function validateForm(){
+    const errors = [];
+
+    if (!checkedValues("blade_architecture").length) errors.push("Select at least one blade architecture.");
+
+    const selectedArchitectures = checkedValues("blade_architecture").filter(x => x !== "Other");
+    selectedArchitectures.forEach(arch => {
+      const key = arch.toLowerCase().replace(/[^a-z0-9]+/g,"_");
+      if (!checkedValues("width_" + key).length) errors.push(`Select at least one width for ${arch}.`);
+    });
+
+    if (checkedValues("blade_architecture").includes("Other") &&
+        !document.querySelector('[name="blade_architecture_other"]').value.trim()){
+      errors.push("Please specify the other blade architecture.");
+    }
+
+    if (!selectedRadio("orientation_changes")) errors.push("Answer Question 3.");
+
+    if (checkedValues("blade_architecture").includes("Elliptical") &&
+        !selectedRadio("elliptical_dilation")) errors.push("Answer Question 5.");
+
+    ["arm_modification","toeing_if_rigid","additional_blade_support","nsa_nm","positioner_benchmark","clinical_case_selection"].forEach(name => {
+      if (!selectedRadio(name)) errors.push(`Please complete ${name.replaceAll("_"," ")}.`);
+    });
+
+    if (!checkedValues("navigation_components").length) errors.push("Select at least one navigation component.");
+
+    if (!checkedValues("positioner_features").length) errors.push("Select at least one patient-positioner feature.");
+
+    if (!document.querySelector('[name="surgeon_name"]').value.trim()) errors.push("Enter your name.");
+
+    return errors;
+  }
+
+  function buildPayload(){
+    const d = serializeDraft();
+    const widths = {};
+    checkedValues("blade_architecture").filter(x => x !== "Other").forEach(arch => {
+      const key = arch.toLowerCase().replace(/[^a-z0-9]+/g,"_");
+      widths[arch] = checkedValues("width_" + key);
+      const other = document.querySelector(`[name="width_other_${key}"]`)?.value?.trim();
+      if (other) widths[arch].push("Other: " + other);
+    });
+
+    return {
+      form_version: FORM_VERSION,
+      response_id: (crypto.randomUUID ? crypto.randomUUID() : String(Date.now()) + "-" + Math.random().toString(16).slice(2)),
+      submitted_at_client: new Date().toISOString(),
+      surgeon_name: d.surgeon_name || "",
+      blade_architecture: checkedValues("blade_architecture"),
+      blade_architecture_other: d.blade_architecture_other || "",
+      blade_widths: widths,
+      orientation_changes: selectedRadio("orientation_changes"),
+      orientation_comments: d.orientation_comments || "",
+      blade_additional_comments: d.blade_additional_comments || "",
+      elliptical_dilation: selectedRadio("elliptical_dilation"),
+      dilation_comments: d.dilation_comments || "",
+      arm_modification: selectedRadio("arm_modification"),
+      arm_comments: d.arm_comments || "",
+      toeing_if_rigid: selectedRadio("toeing_if_rigid"),
+      additional_blade_support: selectedRadio("additional_blade_support"),
+      additional_blade_comments: d.additional_blade_comments || "",
+      shim_comments: d.shim_comments || "",
+      nsa_nm: selectedRadio("nsa_nm"),
+      nm_changes: d.nm_changes || "",
+      nm_comments: d.nm_comments || "",
+      navigation_components: checkedValues("navigation_components"),
+      navigation_other: d.navigation_other || "",
+      navigation_comments: d.navigation_comments || "",
+      positioner_benchmark: selectedRadio("positioner_benchmark"),
+      positioner_other: d.positioner_other || "",
+      positioner_features: checkedValues("positioner_features"),
+      positioner_feature_other: d.positioner_feature_other || "",
+      positioner_comments: d.positioner_comments || "",
+      clinical_case_selection: selectedRadio("clinical_case_selection"),
+      clinical_comments: d.clinical_comments || "",
+      final_comments: d.final_comments || ""
+    };
+  }
+
+  form.addEventListener("change", e => {
+    if (e.target.name === "blade_architecture"){
+      const oldDraft = serializeDraft();
+      renderWidths();
+      // widths intentionally reset if architectures change; prevents stale hidden answers.
+    }
+    updateConditionalLogic();
+    saveDraft();
+  });
+  form.addEventListener("input", saveDraft);
+
+  form.addEventListener("submit", async e => {
+    e.preventDefault();
+    statusEl.textContent = "";
+    statusEl.className = "";
+
+    const errors = validateForm();
+    if (errors.length){
+      statusEl.textContent = errors[0];
+      statusEl.className = "err";
+      return;
+    }
+
+    if (!ENDPOINT_URL.startsWith("https://script.google.com/macros/s/")){
+      statusEl.textContent = "Survey endpoint has not been configured yet.";
+      statusEl.className = "err";
+      return;
+    }
+
+    submitBtn.disabled = true;
+    statusEl.textContent = "Submitting…";
+
+    const payload = buildPayload();
+    const body = new URLSearchParams();
+    body.set("payload", JSON.stringify(payload));
+
+    try{
+      // no-cors is deliberate for a simple GitHub Pages -> Apps Script deployment.
+      // The request is sent successfully, but the browser cannot inspect Google's response.
+      await fetch(ENDPOINT_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: {"Content-Type":"application/x-www-form-urlencoded;charset=UTF-8"},
+        body: body.toString()
+      });
+
+      localStorage.removeItem(STORAGE_KEY);
+      form.reset();
+      renderWidths();
+      updateConditionalLogic();
+      statusEl.textContent = "Thank you — your feedback has been submitted.";
+      statusEl.className = "ok";
+      window.scrollTo({top: document.body.scrollHeight, behavior:"smooth"});
+    } catch(err){
+      statusEl.textContent = "Submission could not be sent. Your draft is still saved in this browser.";
+      statusEl.className = "err";
+    } finally{
+      submitBtn.disabled = false;
+    }
+  });
+
+  document.getElementById("clearBtn").addEventListener("click", () => {
+    if (!confirm("Clear all saved answers from this browser?")) return;
+    localStorage.removeItem(STORAGE_KEY);
+    form.reset();
+    renderWidths();
+    updateConditionalLogic();
+    statusEl.textContent = "Saved draft cleared.";
+    statusEl.className = "";
+  });
+
+  renderWidths();
+  restoreDraft();
+  updateConditionalLogic();
+</script>
+</body>
+</html>
